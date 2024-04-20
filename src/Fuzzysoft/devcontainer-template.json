@@ -1,0 +1,10 @@
+{
+  "id": "fuzzysoft",
+  "version": "0.1.0",
+  "name": "Node-Typescript with GCloud and Terraform",
+  "description": "A Template to remind you of your favorite color",
+  "documentationURL": "https://github.com/mikem2343/devcontainers/tree/main/src/fuzzysoft",
+  "licenseURL": "https://github.com/mikem2343/devcontainers/blob/main/LICENSE",
+  "options": {},
+  "platforms": ["Any"]
+}

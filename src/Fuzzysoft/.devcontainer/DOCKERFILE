@@ -1,0 +1,4 @@
+FROM mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm
+RUN apt-get update
+RUN apt-get install iputils-ping
+COPY smartcopypaste-1.0.2.vsix /tmp/
