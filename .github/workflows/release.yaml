@@ -14,15 +14,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: "Publish Templates"
-        uses: devcontainers/action@v1
+      - name: "Publish Image"
+        uses: devcontainers/ci@v0.3
         with:
-          publish-templates: "true"
-          base-path-to-templates: "./src"
-          generate-docs: "true"
+          imageName: ghcr.io/mikem2343/fuzzysoft-node
+          cacheFrom: ghcr.io/mikem2343/fuzzysoft-node
+          push: always
 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # uses: devcontainers/action@v1
+        # with:
+        #   publish-templates: "true"
+        #   base-path-to-templates: "./src"
+        #   generate-docs: "true"
+
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create PR for Documentation
         id: push_image_info

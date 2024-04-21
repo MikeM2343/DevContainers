@@ -2,7 +2,7 @@
   "id": "fuzzysoft-node",
   "version": "0.1.1",
   "name": "Fuzzysoft Development Image",
-  "description": "A Node 20 dev environment with gcloud cli, terraformand various extensions added",
+  "description": "A Node 20 dev environment with gcloud cli, terraform and various extensions added",
   "documentationURL": "https://github.com/mikem2343/devcontainers/tree/main/src/test",
   "licenseURL": "https://github.com/mikem2343/devcontainers/blob/main/LICENSE",
   "options": {},
