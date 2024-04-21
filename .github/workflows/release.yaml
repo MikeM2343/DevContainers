@@ -1,15 +1,13 @@
 name: "Release Dev Container Templates & Generate Documentation"
 on:
   workflow_dispatch:
-permissions:
-  contents: write
 
 jobs:
   deploy:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
     steps:
       - uses: actions/checkout@v3
@@ -44,6 +42,7 @@ jobs:
           # Add / update and commit
           git add */**/README.md
           git commit -m 'Automated documentation update [skip ci]' || export NO_UPDATES=true
+          git diff
 
           # Push
           if [ "$NO_UPDATES" != "true" ] ; then
