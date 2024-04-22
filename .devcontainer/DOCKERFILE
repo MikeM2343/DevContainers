@@ -3,8 +3,6 @@ RUN apt-get update
 RUN apt-get install iputils-ping
 RUN echo Copying smartcopypaste from current dir
 COPY smartcopypaste-1.0.2.vsix /tmp/
-RUN echo Copying smartcopypaste from path
-COPY .devcontainer/smartcopypaste-1.0.2.vsix /tmp/
 
 RUN echo alias ll=\'ls -alF\' >~/.bash_aliases
 RUN echo alias dir=\'ls -alF\' >>~/.bash_aliases
