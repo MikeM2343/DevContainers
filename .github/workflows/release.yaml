@@ -27,5 +27,6 @@ jobs:
           imageName: ghcr.io/mikem2343/fuzzysoft-node
           cacheFrom: ghcr.io/mikem2343/fuzzysoft-node
           push: always
+          subFolder: src/fuzzysoft
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
