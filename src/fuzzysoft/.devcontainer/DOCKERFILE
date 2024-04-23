@@ -8,3 +8,4 @@ RUN echo 'alias ll="ls -alF"' >> ~/.bashrc
 RUN echo 'alias dir="ls -alF"' >> ~/.bashrc
 RUN echo 'alias la="ls -A"' >> ~/.bashrc
 RUN echo 'alias l="ls -CF"' >> ~/.bashrc
+RUN cat ~/.bashrc
