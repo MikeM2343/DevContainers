@@ -20,6 +20,9 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Get Date
+        id: getDate
+        run: echo "date"="{$(date +'%Y%m%d%H%M%S')}" >> $GITHUB_OUTPUT
 
       - name: "Publish Image"
         uses: devcontainers/ci@v0.3
@@ -28,6 +31,6 @@ jobs:
           cacheFrom: ghcr.io/mikem2343/fuzzysoft-node
           push: always
           subFolder: src/fuzzysoft
-          imageTag: ${{ github.event.repository.updated_at }}
+          imageTag: ${{ steps.getDate.outputs.date }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
