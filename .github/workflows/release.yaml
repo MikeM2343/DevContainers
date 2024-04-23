@@ -28,5 +28,6 @@ jobs:
           cacheFrom: ghcr.io/mikem2343/fuzzysoft-node
           push: always
           subFolder: src/fuzzysoft
+          imageTag: ${{ github.event.repository.updated_at }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
