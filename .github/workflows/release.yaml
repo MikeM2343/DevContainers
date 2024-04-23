@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Get Date
         id: getDate
-        run: echo "date"="{$(date +'%Y%m%d%H%M%S')}" >> $GITHUB_OUTPUT
+        run: echo "date"="$(date +'%Y%m%d%H%M%S')" >> $GITHUB_OUTPUT
 
       - name: "Publish Image"
         uses: devcontainers/ci@v0.3
