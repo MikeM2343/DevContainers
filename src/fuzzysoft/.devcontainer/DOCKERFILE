@@ -4,8 +4,8 @@ RUN apt-get install iputils-ping
 RUN echo Copying smartcopypaste from current dir
 COPY smartcopypaste-1.0.2.vsix /tmp/
 
-RUN echo 'alias ll="ls -alF"' >> ~/.bashrc
-RUN echo 'alias dir="ls -alF"' >> ~/.bashrc
-RUN echo 'alias la="ls -A"' >> ~/.bashrc
-RUN echo 'alias l="ls -CF"' >> ~/.bashrc
-RUN cat ~/.bashrc
+RUN echo 'alias ll="ls -alF"' >> /home/node/.bashrc
+RUN echo 'alias dir="ls -alF"' >> /home/node/.bashrc
+RUN echo 'alias la="ls -A"' >> /home/node/.bashrc
+RUN echo 'alias l="ls -CF"' >> /home/node/.bashrc
+RUN cat /home/node/.bashrc
