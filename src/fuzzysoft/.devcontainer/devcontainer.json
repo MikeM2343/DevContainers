@@ -12,11 +12,12 @@
 		"ghcr.io/devcontainers-contrib/features/terraform-asdf:2": {
 			"version": "latest"
 		},
-		"ghcr.io/dhoeric/features/google-cloud-cli:1": {}
+		"ghcr.io/dhoeric/features/google-cloud-cli:1": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	},
-	"mounts": [
-		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-	],
+	// "mounts": [
+	// 	"source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
+	// ],
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
@@ -38,10 +39,10 @@
 				"/tmp/smartcopypaste-1.0.2.vsix"
 			]
 		}
-	},
-	"postCreateCommand": "apk add --no-cache docker openrc && rc-update add docker boot && service docker start"
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	}
+	// NOTE: apk is only for apline images, so will obviously not work.
+	// This LOOKS like it would be for installing docker as a service in the dev container,
+	// but this is not the ideal solution as it would be better to link the dev container command line (docker.io) to the host
+	// docker daemon. This is done by mounting the docker socket as a volume in the dev container.
+	// "postCreateCommand": "apk add --no-cache docker openrc && rc-update add docker boot && service docker start"
 }
