@@ -1,8 +1,16 @@
 FROM mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm
+
+RUN apt-get upgrade
 RUN apt-get update
 RUN apt-get install iputils-ping
+
+# Install the Docker CLI
+RUN apt-get install -y docker.io
+
+# Instally the smartcopypaste extension
 RUN echo Copying smartcopypaste from current dir
 COPY smartcopypaste-1.0.2.vsix /tmp/
+
 
 RUN echo 'alias ll="ls -alF"' >> /home/node/.bashrc
 RUN echo 'alias dir="ls -alF"' >> /home/node/.bashrc
