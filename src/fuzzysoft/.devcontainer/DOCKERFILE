@@ -1,14 +1,10 @@
-FROM mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm
+FROM mcr.microsoft.com/devcontainers/typescript-node:22-bookworm
 
 RUN apt-get upgrade
 RUN apt-get update
 RUN apt-get install iputils-ping
 
-# Install the Docker CLI -- commmented this out when trying feature: ghcr.io/devcontainers/features/docker-outside-of-docker:1
-# RUN apt-get install -y docker.io
-# RUN usermod -aG docker node
-
-# Instally the smartcopypaste extension
+# Install the smartcopypaste extension
 RUN echo Copying smartcopypaste from current dir
 COPY smartcopypaste-1.0.2.vsix /tmp/
 

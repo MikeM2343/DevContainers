@@ -15,10 +15,6 @@
 		"ghcr.io/dhoeric/features/google-cloud-cli:1": {},
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	},
-	// "mounts": [
-	// 	"source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
-	// ],
-	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -40,9 +36,10 @@
 			]
 		}
 	}
-	// NOTE: apk is only for apline images, so will obviously not work.
+	// NOTE: 'apk' is only for apline images, so will obviously not work.
 	// This LOOKS like it would be for installing docker as a service in the dev container,
 	// but this is not the ideal solution as it would be better to link the dev container command line (docker.io) to the host
-	// docker daemon. This is done by mounting the docker socket as a volume in the dev container.
+	// docker daemon. This is done by mounting the docker socket as a volume in the dev container, which is accomplished by
+	// using the feature ghcr.io/devcontainers/features/docker-outside-of-docker:1 above..
 	// "postCreateCommand": "apk add --no-cache docker openrc && rc-update add docker boot && service docker start"
 }
