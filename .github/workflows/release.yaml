@@ -1,7 +1,8 @@
 name: "Release Dev Container Templates & Generate Documentation"
 on:
   push:
-    branches: ["main"]
+    tags:
+      - "v*.*"
 
 jobs:
   deploy:
@@ -32,6 +33,6 @@ jobs:
           cacheFrom: ghcr.io/mikem2343/fuzzysoft-node
           push: always
           subFolder: src/fuzzysoft
-          imageTag: ${{ steps.getDate.outputs.date }},latest
+          imageTag: ${{ steps.getDate.outputs.date }},latest,${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
