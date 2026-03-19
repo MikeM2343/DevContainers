@@ -4,6 +4,16 @@ RUN apt-get upgrade
 RUN apt-get update
 RUN apt-get install iputils-ping
 
+# Add the Github key and repository for the github cli
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+# Install
+RUN sudo apt update
+RUN sudo apt install gh
+
+RUN sudo apt install ripgrep
+
+
 # Install the smartcopypaste extension
 RUN echo Copying smartcopypaste from current dir
 COPY smartcopypaste-1.0.2.vsix /tmp/
